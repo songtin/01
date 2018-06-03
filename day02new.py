@@ -12,32 +12,16 @@ info=r.urlopen(address.format(city_pinyin)).read().decode('utf-8','ignore')
 
 import json
 data=json.loads(info)
-print("=========6月3日====天气如下")
-print('时间'+data['list'][0]['dt_txt'])
-print('天气情况:'+data['list'][0]['weather'][0]['description'])
-print('最高温度：'+str(data['list'][0]['main']['temp_max']))
-print('最低温度:'+str(data['list'][0]['main']['temp_min']))
+days=[0,8,16,24,32]
+def wea(data,day): 
+     print('时间是：'+str(data['list'][day]['dt_txt']))
+     print('天气情况是:'+str(data['list'][day]['weather'][0]['description']))
+     print('当前风速是'+str(data['list'][day]['wind']['speed']))
+     print('最高温度是：'+str(data['list'][day]['main']['temp_max']))
+     print('最低气温是：'+str(data['list'][day]['main']['temp_min']))
+     print('........................\n')
+for day in days:
+    wea(data,day)
+    
 
-print("=========6月4日====天气如下")
-print('时间'+data['list'][8]['dt_txt'])
-print('天气情况:'+data['list'][8]['weather'][0]['description'])
-print('最高温度：'+str(data['list'][8]['main']['temp_max']))
-print('最低温度'+str(data['list'][8]['main']['temp_min']))
 
-print("=========6月5日====天气如下")
-print('时间'+data['list'][16]['dt_txt'])
-print('天气情况:'+data['list'][16]['weather'][0]['description'])
-print('最高温度：'+str(data['list'][16]['main']['temp_max']))
-print('最低温度'+str(data['list'][16]['main']['temp_min']))
-
-print("=========6月6日====天气如下")
-print('时间'+data['list'][24]['dt_txt'])
-print('天气情况:'+data['list'][24]['weather'][0]['description'])
-print('最高温度：'+str(data['list'][24]['main']['temp_max']))
-print('最低温度'+str(data['list'][24]['main']['temp_min']))
-
-print("=========6月7日====天气如下")
-print('时间'+data['list'][32]['dt_txt'])
-print('天气情况:'+data['list'][32]['weather'][0]['description'])
-print('最高温度：'+str(data['list'][32]['main']['temp_max']))
-print('最低温度'+str(data['list'][32]['main']['temp_min']))
